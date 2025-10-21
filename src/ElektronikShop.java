@@ -1,8 +1,12 @@
 public class ElektronikShop {
+    // hilfsmethode
+    public static void checkArray(int[] arr) {
+        if (arr.length == 0)
+            throw new IllegalArgumentException("Das Array darf nicht null oder leer sein.");
+    }
     // Schreiben Sie eine Methode, welche die billigste Tastatur zurückgibt.
     public static int getBilligsteTastatur(int[] tastaturen) {
-        if (tastaturen.length == 0)
-            throw new IllegalArgumentException("Das Array darf nicht null oder leer sein.");
+        checkArray(tastaturen);
 
         int minPreis = tastaturen[0];
 
@@ -15,10 +19,8 @@ public class ElektronikShop {
 
     // Schreiben Sie eine Methode, welche den teuersten Gegenstand zurückgibt.
     public static int getTeuersteGegenstand(int[] tastaturen, int[] usb) {
-        if (tastaturen.length == 0)
-            throw new IllegalArgumentException("Das Array darf nicht null oder leer sein.");
-        if (usb.length == 0)
-            throw new IllegalArgumentException("Das Array darf nicht null oder leer sein.");
+        checkArray(tastaturen);
+        checkArray(usb);
 
         int maxPreis = tastaturen[0];
         for (int i = 1; i < tastaturen.length; i++)
@@ -34,8 +36,7 @@ public class ElektronikShop {
 
     // Schreiben Sie eine Methode, welche das teuerste USB Laufwerk, das Markus kaufen kann, zurückgibt.
     public static int getTeuersteUsbInBudget(int[] preise, int budget) {
-        if (preise.length == 0)
-            throw new IllegalArgumentException("Das Array darf nicht null oder leer sein.");
+        checkArray(preise);
 
         int maxKaufbar = -1;
 
@@ -54,10 +55,8 @@ public class ElektronikShop {
     // der von Markus ausgegeben wird. Wenn er nicht genug für beide hat, geben Sie stattdessen -1 zurück.
     // Er kauft nur die zwei benötigten Gegenstände.
     public static int getMaximalAusgabe(int budget, int[] tastaturen, int[] usb) {
-        if (tastaturen.length == 0)
-            throw new IllegalArgumentException("Das Array darf nicht null oder leer sein.");
-        if (usb.length == 0)
-            throw new IllegalArgumentException("Das Array darf nicht null oder leer sein.");
+        checkArray(tastaturen);
+        checkArray(usb);
 
         int maxAusgabe = -1;
 
